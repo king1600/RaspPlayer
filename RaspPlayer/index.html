@@ -1,0 +1,169 @@
+<html>
+	<head>
+		<!-- Descriptions -->
+		<meta charset="utf-8">
+      	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Python Youtube Audio Player">
+		<title> RaspPlayer </title>
+
+		<!-- Icon -->
+		<link rel="shortcut icon" href="images/favicon.ico" />
+
+		<!-- CSS Includes -->
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+		<link href='style.css' rel='stylesheet' type='text/css'>
+		<link href='controls.css' rel='stylesheet' type='text/css'>
+
+		<!-- Javascript includes -->
+		<script src="https://code.jquery.com/jquery-1.12.4.min.js" type="text/javascript"></script>
+    	<script src="https://rawgit.com/notifyjs/notifyjs/master/dist/notify.js" type="text/javascript"></script>
+    	<script src="functions.js" type="text/javascript" ></script>
+    	<script src="music.js" type="text/javascript" ></script>
+    	<script src="playlist.js" type="text/javascript" ></script>
+    	<script src="settings.js" type="text/javascript" ></script>
+		<script src="player.js" type="text/javascript" ></script>
+	</head>
+
+	<body onload="init()">
+		<!-- player, song settings, playlist manager -->
+		<!-- toggle content -->
+		<div class="container">
+			<div id="sidebar">
+				<div id="menu-item" onclick="toggleScreen('music')">
+					<img id="music-toggle" src="images/music.png" />
+				</div>
+
+				<div id="menu-item" onclick="toggleScreen('playlist')">
+					<img id="playlist-toggle" src="images/folder.png"  />
+				</div>
+
+				<div id="menu-item" onclick="toggleScreen('settings')">
+					<img id="settings-toggle" src="images/settings.png"  />
+				</div>
+			</div>
+
+			<!-- Pi Image Header -->
+			<div id="header" class="content">
+				<a href="#">
+					<img src="images/icon.png" alt="RaspPlayer" />
+				</a>
+				<!-- Audio Object -->
+				<audio id="audio-player">
+					Your browser does not support the audio element
+				</audio>
+			</div>
+
+			<!-- Music Player Screen -->
+			<div id="music-content" class="content">
+				<img class="song-image" id="song-image"/>
+				<!-- Audio player start -->
+				<div class="player-layout">
+					<!-- Song title -->
+					<div class="title-layout">
+						<span class="song-title">Add a song from playlist</span>
+					</div>
+
+					<!-- Controls -->
+					<div class="music-layout">
+						<div class="control-layout">
+							<img class="rewind-btn" src="images/skip.png" />
+							<img class="play-btn" src="images/play.png"/>
+							<img class="skip-btn" src="images/skip.png" />
+							<img class='reload-btn' src="images/refresh.png" />
+							<!-- slider -->
+							<!-- volume -->
+						</div>
+						<div class='song-time'>00:00 / 00:00</div>
+						<div class="sliders">
+							<input class="seek-slider" type="range" min="0" max="100" value="0" step="1">
+							<img class="volume-btn" src="images/volume_on.png" />
+							<input class="volume-slider" type="range" min="0" max="100" value="50" step="1">
+						</div>
+					</div>
+				</div>
+				<!-- Audio player end -->
+			</div>
+
+			<!-- Playlist manager Screen -->
+			<div id="playlist-content" class="content">
+				<center>
+					<!-- Music Player -->
+					<div class="player-layout">
+						<!-- Controls -->
+						<div class="music-layout">
+							<!-- Image -->
+							<img class="song-image" style="width:10%;height:10%;float:left"/>
+							<!-- Image End -->
+							<div class="control-layout">
+								<img class="rewind-btn" src="images/skip.png" />
+								<img class="play-btn" src="images/play.png"/>
+								<img class="skip-btn" src="images/skip.png" />
+								<img class='reload-btn' src="images/refresh.png" />
+							</div>
+							<!-- Time -->
+							<div class='song-time'>00:00 / 00:00</div>
+							<!-- Sliders -->
+							<div class="sliders">
+								<input class="seek-slider" type="range" min="0" max="100" value="0" step="1" style="width:30%">
+								<img class="volume-btn" src="images/volume_on.png" />
+								<input class="volume-slider" type="range" min="0" max="100" value="50" step="1" style="width:10%;">
+							</div>
+						</div>
+					</div>
+
+					<!-- Search Boxes -->
+					<div class="search-layout">
+						<div class="search-div">
+							<input id='search-box' type='text' placeholder="Youtube URL / Search" />
+							<button id='search-btn'> <img src="images/plus.png" /> Add </button>
+						</div>
+						<div class="playlist-div">
+							<input id='playlist-box' type='text' placeholder="Youtube playlist url" />
+							<button id='playlist-btn'> <img src="images/plus.png" /> Add </button>
+						</div>
+					</div>
+
+					<!-- Current Song queue -->
+					<br />
+					<div id="song-table">
+					</div>
+
+					<!-- update button -->
+					<br />
+					<button id="db-update">Update Database</button>
+				</center>
+			</div>
+
+			<!-- Settings Screen -->
+			<div id="settings-content" class="content">
+				<center>
+					Audio Format:
+					<select id="formats">
+						<option value="m4a">m4a</option>
+						<option value="webm">webm</option>
+					</select> <br /> <br />
+					Volume Surpessor:
+					<input id="vol-sup" type="number" placeholder="Higher = lower Volume" style="width:20%"/>
+					<br /> <br />
+					<button id="save-btn"> Save Settings </button>
+				</center>
+			</div>
+		</div>
+
+		<!-- Footer Info -->
+		<div id="footer">
+			<a href="#">
+				<img src="images/github.png" alt="Github" />
+				<span>Github</span>
+			</a>
+			<a href="#">
+				<img src="images/icon.png" alt="Github" />
+				<span>RaspPi</span>
+			</a>
+			<span class="description">
+				Open-Source Minimal Youtube Audio Player
+			</span>
+		</div>
+
+	</body>
+</html>

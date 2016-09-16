@@ -1,0 +1,138 @@
+/* Layouts */
+
+.player-layout {
+	-webkit-font-smoothing: antialiased;
+	background-color: #DAE3EA;
+	padding: 0.8em;
+	overflow: hidden;
+}
+
+.title-layout {
+	font-family: "Open Sans";
+	font-size: 1.2em;
+	text-align: center;
+	height: 5%;
+}
+
+.control-layout img {
+	border-radius: 5.2em;
+	overflow: hidden;
+	height: 7.5%;/*width: 4em;*/
+	float: left;
+	margin-left: 0.2em;
+	padding-top: 0.5em;
+}
+
+input[type=text] {
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Open Sans";
+    padding: 0.5%;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 45%;
+}
+
+.search-layout button {
+    background-color: #DAE3EA;
+    border-radius: 0.3em;
+    border: 2px solid #1D89CF;
+    padding: 0.5%;
+    -webkit-font-smoothing: antialiased;
+    font-size: 0.9em;
+    padding-left: 1%; padding-right: 1%;
+    color: #1D89CF;
+    font-weight: bold;
+    font-family: "Open Sans";
+}
+.search-layout button img { width:20%; float:left; padding-top:3%; }
+
+/* Extra */
+
+.song-time {
+	float: left;
+	padding-top: 2%;
+	padding-left: 1%;
+	padding-right: 1%;
+}
+
+#song-table {
+	overflow-y: scroll;
+	width: 75%; height: 50%;
+	background-color: white;
+	border: 1px solid black;
+	border-radius: 3%;
+	padding: 1%;
+}
+
+#song-image {
+    /*mix-blend-mode: luminosity;*/
+    opacity: 0.6;
+    -webkit-filter: blur(1px) contrast(1.1);
+  	filter: blur(1px) contrast(1.1);
+}
+
+#db-update {
+	background-color:#BC1142;
+	color: white;
+	padding: 1%; float: right;
+}
+
+/* Buttons */
+
+.reload_btn { height: 6%; }
+.rewind-btn {
+	-moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+}
+.volume-btn {
+	border-radius: 5.2em;
+	height: 4%;
+	float: left;
+	padding-top: 1.5%;
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+/* Sliders */
+
+.seek-slider { width: 40%; }
+.volume-slider { width: 15%; }
+.music-layout .sliders input {
+	padding-top: 1.8em;
+	padding-bottom: 1em;
+	overflow:hidden;
+	background-color: rgb(218, 227, 234);
+}
+
+input[type=range] {
+    /*removes default webkit styles*/
+    -webkit-appearance: none;
+    
+    /*fix for FF unable to apply focus style bug */
+    border: 0px solid white;
+    border-radius: 5px;
+    
+    /*required for proper track sizing in FF*/
+    float: left;
+}
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 1%;
+    background: #818181;
+    border: none;
+    border-radius: 3px;
+}
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 1.2em; /*18px*/
+    width: 1.2em; /*18px*/
+    border-radius: 50%;
+    background: #287EFF;
+    margin-top: -5px;
+}
