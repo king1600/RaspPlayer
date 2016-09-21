@@ -115,7 +115,11 @@ if __name__ == '__main__':
 	jsonFile = "settings.json"
 	with open(jsonFile, 'r') as f:
 		jsonData = json.loads(f.read())
-	jsonData["requestUrl"] = "http://localhost:{0}".format(port)
+	lanSock = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
+	lanSock.connect(("8.8.8.8",53))
+	lanIP = lanSock.getsockname()[0]
+	lanSock.close()
+	jsonData["requestUrl"] = "http://{0}:{1}".format(lanIP, port)
 	with open(jsonFile, 'w') as f:
 		json.dump(jsonData, f, sort_keys=True, indent=4, ensure_ascii=False)
 
